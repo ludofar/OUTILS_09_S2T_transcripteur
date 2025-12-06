@@ -96,6 +96,12 @@ def transcribe(
     model: Optional[str] = typer.Option(None, help="Nom du modèle Whisper à utiliser."),
     device: Optional[str] = typer.Option(None, help="Périphérique d’exécution (cpu, cuda, etc.)."),
     language: Optional[str] = typer.Option(None, help="Code langue ISO à forcer (ex: fr)."),
+    preset: Optional[str] = typer.Option(
+        None,
+        "--preset",
+        "-p",
+        help="Nom d'un preset de configuration à appliquer (sinon preset par défaut).",
+    ),
     sample_rate: int = typer.Option(16000, help="Fréquence d’échantillonnage cible (Hz)."),
     export_text_flag: Optional[bool] = typer.Option(
         None,
@@ -118,6 +124,11 @@ def transcribe(
 
     console = Console(stderr=False, highlight=False, force_terminal=verbose)
     config = AppConfig.load(config_path)
+    preset_name = preset or config.default_preset
+    if preset_name:
+        if not config.apply_preset(preset_name):
+            console.print(f"[red]Preset inconnu : {preset_name}[/red]")
+            raise typer.Exit(code=1)
     if output_dir:
         config.export.output_dir = output_dir
     if model:
@@ -136,6 +147,8 @@ def transcribe(
     console.print(
         f"Configuration Whisper : modèle={config.whisper.model_name}, device={config.whisper.device}, langue={config.whisper.language}"
     )
+    if preset_name:
+        console.print(f"Preset actif : {preset_name}")
 
     exporter_funcs: List[str] = []
     if config.export.export_text:

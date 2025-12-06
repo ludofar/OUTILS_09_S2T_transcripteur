@@ -38,6 +38,8 @@ class AppConfig:
 
     whisper: WhisperOptions = field(default_factory=WhisperOptions)
     export: ExportOptions = field(default_factory=ExportOptions)
+    presets: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    default_preset: Optional[str] = None
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "AppConfig":
@@ -45,9 +47,13 @@ class AppConfig:
         export_data = data.get("export", {})
         if "output_dir" in export_data and not isinstance(export_data["output_dir"], Path):
             export_data["output_dir"] = Path(export_data["output_dir"])
+        presets = data.get("presets", {})
+        default_preset = data.get("default_preset")
         return cls(
             whisper=WhisperOptions(**whisper_data),
             export=ExportOptions(**export_data),
+            presets=presets,
+            default_preset=default_preset,
         )
 
     @classmethod
@@ -77,6 +83,8 @@ class AppConfig:
                 "export_srt": self.export.export_srt,
                 "output_dir": str(self.export.output_dir),
             },
+            "presets": self.presets,
+            "default_preset": self.default_preset,
         }
 
     def save(self, path: Optional[Path] = None) -> None:
@@ -84,3 +92,22 @@ class AppConfig:
         config_path.parent.mkdir(parents=True, exist_ok=True)
         with config_path.open("w", encoding="utf-8") as fp:
             json.dump(self.to_dict(), fp, indent=2)
+
+    def apply_preset(self, name: str) -> bool:
+        preset = self.presets.get(name)
+        if not preset:
+            return False
+
+        whisper_data = preset.get("whisper", {})
+        for key, value in whisper_data.items():
+            if hasattr(self.whisper, key):
+                setattr(self.whisper, key, value)
+
+        export_data = preset.get("export", {})
+        if "output_dir" in export_data and not isinstance(export_data["output_dir"], Path):
+            export_data["output_dir"] = Path(export_data["output_dir"])
+        for key, value in export_data.items():
+            if hasattr(self.export, key):
+                setattr(self.export, key, value)
+
+        return True

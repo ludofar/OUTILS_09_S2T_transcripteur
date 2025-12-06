@@ -2,3 +2,5 @@ torch
 openai-whisper
 ffmpeg-python
 numpy
+typer
+rich

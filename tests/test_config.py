@@ -2,8 +2,14 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
+import json
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
 
 from transcripteur.config import AppConfig, ExportOptions, WhisperOptions
 
@@ -33,3 +39,31 @@ def test_app_config_from_dict_override(tmp_path: Path) -> None:
     assert config.whisper.beam_size == 3
     assert config.export.export_text is False
     assert config.export.output_dir == Path("custom")
+
+
+def test_app_config_presets_apply(tmp_path: Path) -> None:
+    payload = {
+        "whisper": {"model_name": "base", "device": "cpu"},
+        "export": {"output_dir": "base_outputs"},
+        "presets": {
+            "fast": {
+                "whisper": {"model_name": "tiny"},
+                "export": {"output_dir": "fast_outputs"},
+            }
+        },
+        "default_preset": "fast",
+    }
+    config_path = tmp_path / "cfg_presets.json"
+    config_path.write_text(json.dumps(payload), encoding="utf-8")
+
+    config = AppConfig.load(config_path)
+    assert config.default_preset == "fast"
+    assert "fast" in config.presets
+
+    applied = config.apply_preset("fast")
+    assert applied is True
+    assert config.whisper.model_name == "tiny"
+    assert config.export.output_dir == Path("fast_outputs")
+
+    # Un preset inconnu ne doit pas lever d'exception et renvoie False
+    assert config.apply_preset("unknown") is False
