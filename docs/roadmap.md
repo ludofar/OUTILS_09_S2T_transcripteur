@@ -14,9 +14,9 @@
  
 ## Phase 2 – Export et UX (Semaines 5-6)
 - ✅ Export SRT implémenté (formatage basique des segments).
-- Mettre en place indicateurs de progression, journalisation et gestion d’erreurs dans le CLI.
+- ✅ Mettre en place indicateurs de progression, journalisation et gestion d’erreurs dans le CLI.
 - ✅ Introduire la persistance de configuration et la gestion de presets (`AppConfig.presets`, option `--preset`).
-- ☑ Étendre les tests d’intégration avec des médias représentatifs (premier test manuel effectué sur `youtube_30s.wav`).
+- ✅ Étendre les tests d’intégration avec des médias représentatifs (tests automatisés avec stub + test manuel sur `youtube_30s.wav`).
 
 ## Phase 3 – Tests d’environnement et préparation du mode `mic` (Semaines 7-8)
 - Définir une batterie de tests pour profiler l’environnement de la machine (CPU/GPU, RAM, système) et les contraintes spécifiques au mode dictée.

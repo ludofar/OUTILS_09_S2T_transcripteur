@@ -162,17 +162,24 @@ def transcribe(
     with tempfile.TemporaryDirectory(prefix="transcripteur_") as tmpdir:
         audio_path = Path(tmpdir) / "audio.wav"
         try:
+            console.print("[cyan]Étape 1/2 : extraction audio[/cyan]")
             with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), console=console) as progress:
                 extract_task = progress.add_task("Extraction audio", total=None)
                 extract_audio(media, audio_path, sample_rate=sample_rate)
                 progress.update(extract_task, description="Extraction audio terminée", completed=1)
+                console.print("[green]Étape 1/2 : extraction audio terminée[/green]")
 
+                console.print("[cyan]Étape 2/2 : transcription Whisper[/cyan]")
                 transcriber = WhisperTranscriber(config.whisper)
                 transcribe_task = progress.add_task("Transcription Whisper", total=None)
                 result = transcriber.transcribe_file(audio_path)
                 progress.update(transcribe_task, description="Transcription terminée", completed=1)
+                console.print("[green]Étape 2/2 : transcription terminée[/green]")
         except FFmpegError as exc:
             console.print(f"[red]Erreur FFmpeg : {exc}[/red]")
+            raise typer.Exit(code=1) from exc
+        except Exception as exc:  # pragma: no cover - garde-fou pour erreurs inattendues
+            console.print(f"[red]Erreur pendant la transcription : {exc}[/red]")
             raise typer.Exit(code=1) from exc
 
     output_dir = config.export.output_dir
