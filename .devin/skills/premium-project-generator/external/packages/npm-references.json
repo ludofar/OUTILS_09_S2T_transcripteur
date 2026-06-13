@@ -1,0 +1,45 @@
+{
+  "description": "Packages npm recommandés pour les scripts et outils du Premium Project Generator",
+  "packages": [
+    {
+      "name": "yaml",
+      "version": "^2.3.0",
+      "usage": "Parsing et sérialisation YAML pour les frontmatter",
+      "skill_context": "validate-frontmatter.js, project-scaffold.js"
+    },
+    {
+      "name": "ajv",
+      "version": "^8.12.0",
+      "usage": "Validation JSON Schema pour inputs/outputs",
+      "skill_context": "validators/*.json"
+    },
+    {
+      "name": "fs-extra",
+      "version": "^11.1.0",
+      "usage": "Opérations filesystem avancées (copie, mkdirp)",
+      "skill_context": "project-scaffold.js, generate-file-tree.js"
+    },
+    {
+      "name": "chalk",
+      "version": "^5.3.0",
+      "usage": "Couleurs dans les logs console",
+      "skill_context": "Tous les scripts CLI"
+    },
+    {
+      "name": "commander",
+      "version": "^11.0.0",
+      "usage": "Interface CLI robuste",
+      "skill_context": "Scripts avec arguments"
+    },
+    {
+      "name": "glob",
+      "version": "^10.3.0",
+      "usage": "Recherche de fichiers par pattern",
+      "skill_context": "tools-documentation scanner"
+    }
+  ],
+  "peer_dependencies": {
+    "node": ">=18.0.0"
+  },
+  "note": "Ces packages sont optionnels. Le skill fonctionne sans eux (mode dégradé)."
+}

@@ -1,0 +1,65 @@
+{
+  "mcpServers": [
+    {
+      "name": "filesystem",
+      "enabled": true,
+      "description": "Accès au système de fichiers local pour scaffolding et validation",
+      "config": {
+        "roots": ["."],
+        "allowed_operations": ["read", "write", "list", "search"]
+      },
+      "use_cases": [
+        "Scaffolding de projets",
+        "Validation de structure",
+        "Scan des fichiers Windsurf",
+        "Génération de guides"
+      ]
+    },
+    {
+      "name": "github",
+      "enabled": true,
+      "description": "Accès à GitHub pour référencer des repos et templates",
+      "config": {
+        "token_env": "GITHUB_TOKEN",
+        "scopes": ["repo:read"]
+      },
+      "use_cases": [
+        "Récupération de templates",
+        "Références architecturales",
+        "Vérification de dépendances"
+      ]
+    },
+    {
+      "name": "postgres",
+      "enabled": false,
+      "description": "Accès à PostgreSQL pour projets avec base de données",
+      "config": {
+        "connection_env": "DATABASE_URL",
+        "read_only": true
+      },
+      "use_cases": [
+        "Analyse de schéma DB",
+        "Génération de modèles",
+        "Validation de requêtes"
+      ]
+    },
+    {
+      "name": "memory",
+      "enabled": false,
+      "description": "Persistance de mémoire cross-session",
+      "config": {
+        "storage_path": "./.devin/memories"
+      },
+      "use_cases": [
+        "Contexte persistant",
+        "Préférences utilisateur",
+        "Historique des actions"
+      ]
+    }
+  ],
+  "security": {
+    "note": "Ne jamais commiter de tokens ou secrets",
+    "token_storage": "Variables d'environnement uniquement",
+    "validation": "Vérifier l'absence de secrets avant commit"
+  }
+}

@@ -1,0 +1,54 @@
+name: "skill-architecture"
+description: "Requête prédéfinie pour l'architecture complète d'un skill Windsurf"
+
+query:
+  keywords:
+    - skill
+    - architecture
+    - structure
+    - dossiers
+    - SKILL.md
+    - frontmatter
+    - tools
+    - prompts
+    - examples
+    - knowledge
+    - data
+    - checklists
+    - memories
+    - rules
+    - external
+    - rag
+    - integrations
+    - references
+  
+  context_needed:
+    - "Structure complète d'un skill (14 dossiers)"
+    - "Format du fichier SKILL.md"
+    - "Progressive disclosure"
+    - "Standards de qualité"
+
+filters:
+  type:
+    - guidelines
+    - schemas
+    - templates
+  
+  min_boost: 1.5
+
+retrieval:
+  top_k: 8
+  strategy: hybrid
+  min_score: 0.7
+
+sources_priority:
+  - "knowledge/guidelines.md"
+  - "tools/templates/skill-template.md"
+  - "tools/validators/skill-schema.json"
+  - "data/config.json"
+
+response_format:
+  - "Arborescence complète du skill"
+  - "Frontmatter YAML requis"
+  - "Sections obligatoires du SKILL.md"
+  - "Dossiers à activer selon le contexte"

@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Premium Project Generator - Input Schema",
+  "type": "object",
+  "required": ["project_name", "tech_stack", "business_domain"],
+  "properties": {
+    "project_name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Nom du projet en kebab-case"
+    },
+    "tech_stack": {
+      "type": "string",
+      "description": "Stack technique principal"
+    },
+    "business_domain": {
+      "type": "string",
+      "enum": ["fintech", "health", "ecommerce", "education", "iot", "devops", "saas", "social", "other"],
+      "description": "Domaine métier"
+    },
+    "team_size": {
+      "type": "string",
+      "enum": ["solo", "small", "medium", "large"],
+      "default": "small"
+    },
+    "maturity": {
+      "type": "string",
+      "enum": ["POC", "MVP", "production", "legacy-migration"],
+      "default": "MVP"
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": ["fr"]
+    },
+    "pain_points": {
+      "type": "string",
+      "description": "Problèmes récurrents à résoudre"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "project_name": "ecommerce-pro",
+  "tech_stack": "Next.js 14 / TypeScript / Prisma / PostgreSQL / Stripe",
+  "business_domain": "ecommerce",
+  "team_size": "medium",
+  "maturity": "MVP",
+  "constraints": ["RGPD", "PCI-DSS", "i18n", "performance", "SEO"],
+  "languages": ["fr", "en", "es"],
+  "pain_points": "Panier abandonné élevé, temps de chargement des produits, gestion des stocks en temps réel"
+}

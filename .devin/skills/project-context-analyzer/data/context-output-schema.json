@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Project Context Analyzer - Output Schema",
+  "type": "object",
+  "required": [
+    "project_name",
+    "tech_stack",
+    "business_domain",
+    "confidence_score"
+  ],
+  "properties": {
+    "project_name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Nom du projet en kebab-case"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description courte du projet"
+    },
+    "tech_stack": {
+      "type": "string",
+      "description": "Stack technique formatée pour le générateur"
+    },
+    "business_domain": {
+      "type": "string",
+      "enum": ["fintech", "health", "ecommerce", "education", "iot", "devops", "saas", "social", "other"],
+      "description": "Domaine métier détecté"
+    },
+    "team_size": {
+      "type": "string",
+      "enum": ["solo", "small", "medium", "large"],
+      "default": "small",
+      "description": "Taille d'équipe déduite"
+    },
+    "maturity": {
+      "type": "string",
+      "enum": ["POC", "MVP", "production", "legacy-migration"],
+      "default": "MVP",
+      "description": "Maturité du projet déduite"
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Contraintes détectées"
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": ["fr"],
+      "description": "Langues détectées"
+    },
+    "pain_points": {
+      "type": "string",
+      "description": "Problèmes ou zones d'ombre identifiés"
+    },
+    "detected_details": {
+      "type": "object",
+      "description": "Détails techniques détectés",
+      "properties": {
+        "framework": { "type": "string" },
+        "runtime": { "type": "string" },
+        "database": { "type": "string" },
+        "orm": { "type": "string" },
+        "styling": { "type": "string" },
+        "testing": { "type": "string" },
+        "build_tool": { "type": "string" },
+        "external_services": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "typescript": { "type": "boolean" },
+        "monorepo": { "type": "boolean" }
+      }
+    },
+    "windsurf_existing": {
+      "type": "object",
+      "description": "État de l'outillage Windsurf existant",
+      "properties": {
+        "rules_count": { "type": "integer", "minimum": 0 },
+        "skills_count": { "type": "integer", "minimum": 0 },
+        "workflows_count": { "type": "integer", "minimum": 0 },
+        "has_rag": { "type": "boolean" },
+        "has_mcp": { "type": "boolean" },
+        "maturity_from_windsurf": {
+          "type": "string",
+          "enum": ["POC", "MVP", "production", "legacy-migration"]
+        }
+      }
+    },
+    "confidence_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Score de confiance global de l'analyse"
+    },
+    "detection_sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Sources utilisées pour la détection"
+    }
+  }
+}

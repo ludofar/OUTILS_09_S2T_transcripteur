@@ -1,0 +1,160 @@
+{
+  "platforms": {
+    "claude-code": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.claude/skills/",
+      "project_path": ".claude/skills/",
+      "shared_with": ["copilot"],
+      "notes": "VS Code Copilot 1.108+ reads ~/.claude/skills/ natively"
+    },
+    "copilot": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.claude/skills/",
+      "project_path": ".github/skills/",
+      "shared_with": ["claude-code"],
+      "notes": "Shares global path with Claude Code"
+    },
+    "codex": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.agents/skills/",
+      "project_path": ".agents/skills/",
+      "shared_with": ["antigravity", "gemini", "kiro"],
+      "notes": "Universal agents path"
+    },
+    "gemini": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.gemini/skills/",
+      "project_path": null,
+      "shared_with": [],
+      "notes": "Global only"
+    },
+    "kiro": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": null,
+      "project_path": ".kiro/skills/",
+      "shared_with": [],
+      "notes": "Project only"
+    },
+    "antigravity": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.agents/skills/",
+      "project_path": ".agents/skills/",
+      "shared_with": ["codex"],
+      "notes": "Universal agents path"
+    },
+    "goose": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.config/goose/skills/",
+      "project_path": null,
+      "shared_with": [],
+      "notes": "Global only"
+    },
+    "opencode": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.config/opencode/skills/",
+      "project_path": null,
+      "shared_with": [],
+      "notes": "Global only"
+    },
+    "cursor": {
+      "tier": 2,
+      "format": "mdc",
+      "global_path": null,
+      "project_path": ".cursor/rules/",
+      "conversion": {
+        "source": "SKILL.md",
+        "target": ".mdc",
+        "mapping": {
+          "description": "description",
+          "trigger:glob": "globs",
+          "trigger:always_on": "alwaysApply:true",
+          "trigger:manual": "alwaysApply:false"
+        }
+      },
+      "notes": "No global skills directory — use symlink workaround"
+    },
+    "windsurf": {
+      "tier": 2,
+      "format": "windsurf-md",
+      "global_path": "~/.codeium/windsurf/",
+      "project_path": ".devin/rules/",
+      "conversion": {
+        "source": "SKILL.md",
+        "target": ".md",
+        "mapping": {
+          "trigger": "trigger",
+          "description": "description"
+        }
+      },
+      "notes": "Native .md rules format"
+    },
+    "cline": {
+      "tier": 2,
+      "format": "plain-md",
+      "global_path": null,
+      "project_path": ".clinerules/",
+      "conversion": {
+        "source": "SKILL.md",
+        "target": ".md",
+        "mapping": "strip-frontmatter"
+      },
+      "notes": "Plain markdown, no frontmatter"
+    },
+    "roo-code": {
+      "tier": 2,
+      "format": "plain-md",
+      "global_path": null,
+      "project_path": ".roo/rules/",
+      "conversion": {
+        "source": "SKILL.md",
+        "target": ".md",
+        "mapping": "strip-frontmatter"
+      },
+      "notes": "Plain markdown, no frontmatter"
+    },
+    "trae": {
+      "tier": 2,
+      "format": "plain-md",
+      "global_path": null,
+      "project_path": ".trae/rules/",
+      "conversion": {
+        "source": "SKILL.md",
+        "target": ".md",
+        "mapping": "strip-frontmatter"
+      },
+      "notes": "Plain markdown, no frontmatter"
+    },
+    "universal": {
+      "tier": 1,
+      "format": "skill.md",
+      "global_path": "~/.agents/skills/",
+      "project_path": ".agents/skills/",
+      "shared_with": ["codex", "gemini", "kiro", "antigravity"],
+      "notes": "Emerging cross-tool convention"
+    }
+  },
+  "detection_order": [
+    { "check": "~/.claude/", "platform": "claude-code" },
+    { "check": ".cursor/", "platform": "cursor" },
+    { "check": "~/.cursor/", "platform": "cursor" },
+    { "check": ".github/", "platform": "copilot" },
+    { "check": "~/.codeium/windsurf/", "platform": "windsurf" },
+    { "check": ".devin/", "platform": "windsurf" },
+    { "check": ".clinerules/", "platform": "cline" },
+    { "check": "~/.gemini/", "platform": "gemini" },
+    { "check": ".kiro/", "platform": "kiro" },
+    { "check": ".trae/", "platform": "trae" },
+    { "check": ".roo/", "platform": "roo-code" },
+    { "check": "~/.config/goose/", "platform": "goose" },
+    { "check": "~/.config/opencode/", "platform": "opencode" },
+    { "check": "~/.agents/", "platform": "universal" }
+  ]
+}

@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  title: Premium Project Generator - API Interne
+  description: |
+    Spécification de l'interface interne du générateur.
+    Définit les contrats entre les 4 niveaux du meta-prompting
+    et les composants du skill.
+  version: 1.0.0
+
+servers:
+  - url: file://.devin/skills/premium-project-generator
+    description: Skill local
+
+paths:
+  /analyze:
+    post:
+      summary: Niveau 1 - Analyser le contexte projet
+      description: |
+        Reçoit les variables projet et produit un rapport
+        d'analyse structuré.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../../data/schemas/input-schema.json"
+      responses:
+        "200":
+          description: Rapport d'analyse
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  level:
+                    type: integer
+                    enum: [1]
+                  analysis:
+                    type: object
+                  open_questions:
+                    type: array
+                    items: { type: string }
+                  recommendations:
+                    type: array
+                    items: { type: string }
+
+  /blueprint:
+    post:
+      summary: Niveau 2 - Générer le blueprint technique
+      description: |
+        Transforme le rapport d'analyse en architecture
+        d'outillage complète.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                analysis_report:
+                  type: object
+      responses:
+        "200":
+          description: Blueprint d'architecture
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  level:
+                    type: integer
+                    enum: [2]
+                  blueprint:
+                    type: object
+                    properties:
+                      deliverables:
+                        type: object
+                      folder_selection:
+                        type: object
+                      deployment_plan:
+                        type: array
+
+  /generate:
+    post:
+      summary: Niveau 3 - Générer les livrables
+      description: |
+        Produire concrètement tous les fichiers
+        selon le blueprint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                blueprint:
+                  type: object
+      responses:
+        "200":
+          description: Fichiers générés
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  level:
+                    type: integer
+                    enum: [3]
+                  generated_files:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                        status:
+                          type: string
+                          enum: ["generated", "failed"]
+                        validation:
+                          type: string
+                          enum: ["passed", "failed"]
+
+  /validate:
+    post:
+      summary: Niveau 4 - Quality gate
+      description: |
+        Valider l'ensemble des livrables et produire
+        un rapport de qualité.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                generated_files:
+                  type: array
+      responses:
+        "200":
+          description: Rapport de validation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  level:
+                    type: integer
+                    enum: [4]
+                  global_score:
+                    type: number
+                    minimum: 0
+                    maximum: 100
+                  errors:
+                    type: array
+                    items: { type: string }
+                  warnings:
+                    type: array
+                    items: { type: string }
+                  patches:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                        action:
+                          type: string
+                          enum: ["add", "modify", "delete"]
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object

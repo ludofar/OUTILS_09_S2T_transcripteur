@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Premium Project Generator - Output Schema",
+  "type": "object",
+  "required": ["agents_md", "rules_set", "skills_set", "workflows_set"],
+  "properties": {
+    "agents_md": {
+      "type": "string",
+      "description": "Contenu du AGENTS.md généré"
+    },
+    "rules_set": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "trigger": { "type": "string" },
+          "size": { "type": "number" }
+        },
+        "required": ["name", "path", "trigger"]
+      }
+    },
+    "skills_set": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "folders_used": { "type": "number" },
+          "auto_invoke": { "type": "boolean" }
+        },
+        "required": ["name", "path"]
+      }
+    },
+    "workflows_set": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" }
+        },
+        "required": ["name", "path"]
+      }
+    },
+    "rag_config": {
+      "type": "object",
+      "properties": {
+        "sources_count": { "type": "number" },
+        "queries_count": { "type": "number" }
+      }
+    },
+    "mcp_config": {
+      "type": "object",
+      "properties": {
+        "servers_count": { "type": "number" },
+        "servers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "tools_guide": {
+      "type": "string",
+      "description": "Contenu du TOOLS_USERGUIDE.md"
+    },
+    "validation_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "execution_time_minutes": {
+      "type": "number"
+    }
+  }
+}

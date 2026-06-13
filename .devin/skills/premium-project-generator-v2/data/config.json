@@ -1,0 +1,79 @@
+{
+  "generator_name": "premium-project-generator-v2",
+  "version": "2.0.0",
+  "defaults": {
+    "scope": "workspace",
+    "auto_invoke": false,
+    "confidence_threshold": 0.8,
+    "min_rules": 4,
+    "min_skills": 3,
+    "min_workflows": 3,
+    "language": "fr",
+    "code_language": "en",
+    "export_platforms": ["windsurf"],
+    "team_sharing": false,
+    "interactive_mode": false
+  },
+  "staleness_defaults": {
+    "review_interval_days": {
+      "POC": 30,
+      "MVP": 60,
+      "production": 90,
+      "legacy-migration": 45
+    },
+    "default_interval": 90
+  },
+  "security_scan": {
+    "enabled": true,
+    "block_on_high": true,
+    "scan_extensions": [".md", ".yaml", ".yml", ".json", ".js", ".ts", ".py", ".sh", ".mdc"],
+    "skip_dirs": ["node_modules", ".git", "__pycache__", "dist", "build"]
+  },
+  "cross_platform": {
+    "supported_platforms": [
+      "windsurf", "cursor", "claude-code", "copilot", "codex",
+      "gemini", "kiro", "antigravity", "goose", "opencode",
+      "cline", "roo-code", "trae", "universal"
+    ],
+    "tier_1_native": ["claude-code", "copilot", "codex", "gemini", "kiro", "antigravity", "goose", "opencode"],
+    "tier_2_adapted": ["cursor", "windsurf", "cline", "roo-code", "trae"],
+    "tier_3_manual": ["zed", "junie", "aider"]
+  },
+  "team_sharing": {
+    "default_visibility": "private",
+    "topic_tag": "windsurf-tools",
+    "registry_dir": "~/windsurf-tools-registry"
+  },
+  "folder_defaults": {
+    "tools": { "required": true, "default_subdirs": ["scripts", "templates", "generators", "validators"] },
+    "prompts": { "required": true, "default_subdirs": [] },
+    "examples": { "required": true, "default_subdirs": ["input-examples", "output-examples"] },
+    "knowledge": { "required": true, "default_subdirs": [] },
+    "data": { "required": true, "default_subdirs": ["schemas"] },
+    "checklists": { "required": true, "default_subdirs": [] },
+    "memories": { "required": false, "default_subdirs": [] },
+    "rules": { "required": false, "default_subdirs": [] },
+    "external": { "required": false, "default_subdirs": ["repositories", "packages", "libraries"] },
+    "rag": { "required": false, "default_subdirs": ["sources", "queries"] },
+    "integrations": { "required": false, "default_subdirs": ["mcp", "apis"] },
+    "references": { "required": false, "default_subdirs": ["documentation", "articles", "standards"] },
+    "workflows": { "required": false, "default_subdirs": [] },
+    "tests": { "required": false, "default_subdirs": ["scenarios"] },
+    "docs": { "required": true, "default_subdirs": [] }
+  },
+  "templates_dir": "tools/templates/",
+  "validators_dir": "tools/validators/",
+  "output_encoding": "utf-8",
+  "max_rule_size": 12000,
+  "max_skill_lines": 500,
+  "quality_threshold": 85,
+  "scoring_v2": {
+    "completeness": 25,
+    "frontmatter_quality": 15,
+    "inter_file_coherence": 15,
+    "examples_docs": 15,
+    "premium_standards": 10,
+    "security": 10,
+    "staleness": 10
+  }
+}

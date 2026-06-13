@@ -1,0 +1,125 @@
+{
+  "mappings": {
+    "nextjs": {
+      "type": "web",
+      "languages": ["ts", "tsx"],
+      "frameworks": ["nextjs", "react"],
+      "rules": ["coding-standards-ts", "nextjs-conventions", "react-patterns"],
+      "skills": ["project-scaffold", "component-generator", "api-routes-generator"],
+      "mcp": ["filesystem", "github"],
+      "rag_sources": ["https://nextjs.org/docs", "https://react.dev"],
+      "implicit_conventions": ["ESLint", "Prettier", "TypeScript strict mode"],
+      "security_requirements": ["CSP headers", "CSRF protection", "XSS prevention"]
+    },
+    "astro": {
+      "type": "web",
+      "languages": ["ts", "astro"],
+      "frameworks": ["astro"],
+      "rules": ["coding-standards-ts", "astro-conventions", "mdx-patterns"],
+      "skills": ["project-scaffold", "content-manager"],
+      "mcp": ["filesystem"],
+      "rag_sources": ["https://docs.astro.build"],
+      "implicit_conventions": ["ESLint", "Prettier"],
+      "security_requirements": ["CSP headers"]
+    },
+    "react": {
+      "type": "web",
+      "languages": ["js", "jsx", "ts", "tsx"],
+      "frameworks": ["react", "vite"],
+      "rules": ["coding-standards-js", "react-patterns"],
+      "skills": ["project-scaffold", "component-generator"],
+      "mcp": ["filesystem", "github"],
+      "rag_sources": ["https://react.dev"],
+      "implicit_conventions": ["ESLint", "Prettier", "React Testing Library"],
+      "security_requirements": ["XSS prevention", "dangerouslySetInnerHTML audit"]
+    },
+    "vue": {
+      "type": "web",
+      "languages": ["js", "vue"],
+      "frameworks": ["vue", "vite"],
+      "rules": ["coding-standards-js", "vue-conventions"],
+      "skills": ["project-scaffold", "component-generator"],
+      "mcp": ["filesystem"],
+      "rag_sources": ["https://vuejs.org"],
+      "implicit_conventions": ["ESLint with vue plugin", "Prettier"],
+      "security_requirements": ["v-html audit", "XSS prevention"]
+    },
+    "fastapi": {
+      "type": "backend",
+      "languages": ["py"],
+      "frameworks": ["fastapi", "pydantic"],
+      "rules": ["coding-standards-py", "fastapi-patterns", "api-design"],
+      "skills": ["project-scaffold", "api-generator", "data-validator"],
+      "mcp": ["filesystem", "postgres"],
+      "rag_sources": ["https://fastapi.tiangolo.com"],
+      "implicit_conventions": ["Black", "isort", "mypy", "pytest"],
+      "security_requirements": ["SQL injection prevention", "rate limiting", "CORS"]
+    },
+    "django": {
+      "type": "backend",
+      "languages": ["py"],
+      "frameworks": ["django"],
+      "rules": ["coding-standards-py", "django-conventions"],
+      "skills": ["project-scaffold", "api-generator"],
+      "mcp": ["filesystem", "postgres"],
+      "rag_sources": ["https://docs.djangoproject.com"],
+      "implicit_conventions": ["Black", "isort", "pytest-django"],
+      "security_requirements": ["CSRF", "SQL injection", "XSS", "clickjacking"]
+    },
+    "express": {
+      "type": "backend",
+      "languages": ["js"],
+      "frameworks": ["express", "node"],
+      "rules": ["coding-standards-js", "express-patterns"],
+      "skills": ["project-scaffold", "api-generator"],
+      "mcp": ["filesystem", "postgres"],
+      "rag_sources": ["https://expressjs.com"],
+      "implicit_conventions": ["ESLint", "Prettier", "Jest"],
+      "security_requirements": ["helmet", "rate-limiting", "input sanitisation"]
+    },
+    "flutter": {
+      "type": "mobile",
+      "languages": ["dart"],
+      "frameworks": ["flutter"],
+      "rules": ["coding-standards-dart", "flutter-patterns"],
+      "skills": ["project-scaffold"],
+      "mcp": ["filesystem"],
+      "rag_sources": ["https://docs.flutter.dev"],
+      "implicit_conventions": ["dart_lints", "flutter_lints"],
+      "security_requirements": ["secure storage", "certificate pinning"]
+    },
+    "react-native": {
+      "type": "mobile",
+      "languages": ["js", "ts"],
+      "frameworks": ["react-native"],
+      "rules": ["coding-standards-ts", "react-native-patterns"],
+      "skills": ["project-scaffold", "component-generator"],
+      "mcp": ["filesystem"],
+      "rag_sources": ["https://reactnative.dev"],
+      "implicit_conventions": ["ESLint", "Prettier", "Jest"],
+      "security_requirements": ["secure storage", "certificate pinning", "code obfuscation"]
+    },
+    "terraform": {
+      "type": "devops",
+      "languages": ["hcl"],
+      "frameworks": ["terraform"],
+      "rules": ["coding-standards-hcl", "iac-patterns"],
+      "skills": ["project-scaffold", "infra-deployer"],
+      "mcp": ["filesystem", "github"],
+      "rag_sources": ["https://developer.hashicorp.com/terraform/docs"],
+      "implicit_conventions": ["terraform fmt", "tflint", "checkov"],
+      "security_requirements": ["no hardcoded secrets", "state encryption", "least privilege IAM"]
+    },
+    "kubernetes": {
+      "type": "devops",
+      "languages": ["yaml"],
+      "frameworks": ["kubernetes", "helm"],
+      "rules": ["k8s-conventions", "helm-patterns"],
+      "skills": ["project-scaffold", "deploy-pipeline"],
+      "mcp": ["filesystem", "github"],
+      "rag_sources": ["https://kubernetes.io/docs"],
+      "implicit_conventions": ["kubeval", "helm lint", "OPA/Gatekeeper"],
+      "security_requirements": ["RBAC", "network policies", "pod security standards", "secrets management"]
+    }
+  }
+}

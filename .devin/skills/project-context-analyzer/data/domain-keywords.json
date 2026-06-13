@@ -1,0 +1,34 @@
+{
+  "fintech": {
+    "primary": ["fintech", "finance", "banking", "trading", "crypto", "blockchain", "bitcoin", "ethereum", "wallet", "payment", "paiement", "carte bancaire", "investissement", "bourse", "compte bancaire", "prêt", "crédit", "assurance", "neobank", "neobanque", "iban", "swift", "kyc", "aml", "fraud"],
+    "frameworks": ["plaid", "stripe", "adyen", "braintree", "square", "recurly", "chargebee"]
+  },
+  "health": {
+    "primary": ["health", "santé", "médical", "clinique", "hôpital", "patient", "docteur", "ordonnance", "dossier médical", "télémédecine", "télésanté", "pharmacie", "vaccin", "biologie", "imagerie", "soins", "urgences", "psychologie", "nutrition", "sport", "fitness"],
+    "frameworks": ["fhir", "hl7", "dicom", "epic", "cerner"]
+  },
+  "ecommerce": {
+    "primary": ["ecommerce", "e-commerce", "boutique", "shop", "store", "panier", "commande", "produit", "catalogue", "livraison", "expédition", "stock", "inventory", "wishlist", "promo", "code promo", "marketplace", "dropshipping", "abonnement", "subscription", "merchant", "client", "retail", "omnicanal"],
+    "frameworks": ["shopify", "woocommerce", "magento", "prestashop", "bigcommerce", "medusa", "saleor"]
+  },
+  "education": {
+    "primary": ["education", "formation", "cours", "mooc", "ecole", "école", "université", "collège", "lycée", "étudiant", "élève", "professeur", "enseignant", "apprentissage", "elearning", "certification", "diplôme", "quiz", "examen", "classe virtuelle", "tutoriel", "pedagogie"],
+    "frameworks": ["moodle", "canvas", "blackboard", "openedx"]
+  },
+  "iot": {
+    "primary": ["iot", "internet des objets", "connected", "connecté", "sensor", "capteur", "device", "appareil", "embarqué", "embedded", "arduino", "raspberry", "esp32", "mqtt", "domotique", "smart home", "wearable", "montre connectée", "véhicule connecté", "industrie 4.0", "telemetry", "télémétrie"],
+    "frameworks": ["mqtt", "zigbee", "zwave", "homeassistant", "thingsboard"]
+  },
+  "devops": {
+    "primary": ["devops", "ci/cd", "pipeline", "infra", "infrastructure", "kubernetes", "k8s", "docker", "terraform", "ansible", "deploy", "déploiement", "hosting", "hébergement", "cloud", "aws", "azure", "gcp", "monitoring", "observability", "logs", "sre", "gitlab-ci", "github-actions", "jenkins"],
+    "frameworks": ["terraform", "ansible", "pulumi", "vagrant", "chef", "puppet"]
+  },
+  "saas": {
+    "primary": ["saas", "b2b", "subscription", "tenant", "workspace", "collaboration", "crm", "erp", "dashboard", "analytics", "reporting", "billing", "facturation", " onboarding", "invitation", "rôle", "permission", "organisation", "team", "équipe", "projet", "task", "tâche", "workflow", "automation"],
+    "frameworks": ["retool", "airtable", "notion-api", "slack-api", "hubspot"]
+  },
+  "social": {
+    "primary": ["social", "réseau social", "chat", "messagerie", "message", "conversation", "communauté", "community", "forum", "commentaire", "like", "partage", "share", "friend", "ami", "follow", "follower", "abonné", "profile", "profil", "feed", "timeline", "notification", "story", "live", "streaming", "event", "événement"],
+    "frameworks": ["socket.io", "pusher", "twilio", "agora", "getstream"]
+  }
+}

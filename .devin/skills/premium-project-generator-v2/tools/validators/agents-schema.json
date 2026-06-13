@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AGENTS.md Validation Schema V2",
+  "description": "Structural validation rules for AGENTS.md files",
+  "type": "object",
+  "required": ["has_role", "has_rules_section", "has_skills_section"],
+  "properties": {
+    "has_role": {
+      "type": "boolean",
+      "description": "Must have a Role & Mission section"
+    },
+    "has_rules_section": {
+      "type": "boolean",
+      "description": "Must reference associated rules"
+    },
+    "has_skills_section": {
+      "type": "boolean",
+      "description": "Must reference available skills"
+    },
+    "has_conventions": {
+      "type": "boolean",
+      "description": "Should have project-specific conventions"
+    },
+    "has_examples": {
+      "type": "boolean",
+      "description": "Should include usage examples"
+    },
+    "has_memories_section": {
+      "type": "boolean",
+      "description": "Should document which memories to create"
+    },
+    "has_staleness_metadata": {
+      "type": "boolean",
+      "description": "V2: Should include staleness metadata"
+    },
+    "validation_rules": {
+      "max_sections": 10,
+      "required_headings": ["Rôle", "Règles", "Skills"],
+      "recommended_headings": ["Conventions", "Exemples", "Mémoires"]
+    }
+  }
+}

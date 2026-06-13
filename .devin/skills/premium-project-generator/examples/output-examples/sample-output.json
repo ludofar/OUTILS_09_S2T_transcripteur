@@ -1,0 +1,36 @@
+{
+  "level": 4,
+  "context": "Projet ecommerce-pro - E-commerce Next.js/TS/Prisma",
+  "objective": "Générer le kit d'outils Windsurf complet pour ecommerce-pro",
+  "validation_report": {
+    "global_score": 94,
+    "categories": {
+      "completeness": { "score": 29, "max": 30 },
+      "frontmatter_quality": { "score": 20, "max": 20 },
+      "inter_file_coherence": { "score": 20, "max": 20 },
+      "examples_docs": { "score": 15, "max": 15 },
+      "premium_standards": { "score": 10, "max": 15, "issues": ["TODO: Ajouter plus d'exemples dans le skill payment-gateway"] }
+    },
+    "generated_files": [
+      { "path": "AGENTS.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/rules/coding-standards-ts.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/rules/ecommerce-knowledge.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/rules/review-checklist.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/rules/pci-dss-guardrails.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/rules/rgpd-guardrails.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/skills/specification-brainstorm/SKILL.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/skills/tools-documentation/SKILL.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/skills/component-generator/SKILL.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/skills/api-routes/SKILL.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/skills/payment-gateway/SKILL.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/workflows/init-project.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/workflows/meta-brainstorm.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/workflows/update-tools-docs.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/workflows/create-component.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/workflows/api-review.md", "status": "generated", "validation": "passed" },
+      { "path": ".devin/rag/config.yaml", "status": "generated", "validation": "passed" },
+      { "path": ".devin/integrations/mcp/servers.json", "status": "generated", "validation": "passed" }
+    ],
+    "next_action": "Livrables validés et prêts pour utilisation"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Rule Frontmatter Schema V2",
+  "description": "Validation schema for Windsurf rule frontmatter (V2 with staleness)",
+  "type": "object",
+  "required": ["name", "description", "trigger"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Kebab-case identifier"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Rule description visible by Cascade"
+    },
+    "trigger": {
+      "type": "string",
+      "enum": ["always_on", "glob", "model_decision", "manual"],
+      "description": "Activation trigger mode"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Rule priority"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "V2 staleness metadata",
+      "properties": {
+        "created": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "last_reviewed": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "review_interval_days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 365
+        },
+        "generator": {
+          "type": "string"
+        }
+      },
+      "required": ["created", "last_reviewed", "review_interval_days"]
+    }
+  },
+  "additionalProperties": true,
+  "validation_constraints": {
+    "max_content_length": 12000,
+    "required_sections": ["Règles principales", "Anti-patterns", "Exemples"],
+    "recommended_sections": ["Conventions", "Références"]
+  }
+}

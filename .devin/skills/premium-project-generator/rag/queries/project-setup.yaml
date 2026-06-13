@@ -1,0 +1,44 @@
+name: "project-setup"
+description: "Requête prédéfinie pour la configuration d'un nouveau projet"
+
+query:
+  keywords:
+    - setup
+    - bootstrap
+    - init
+    - scaffold
+    - project
+    - configuration
+    - windsurf
+    - tools
+  
+  context_needed:
+    - "Comment structurer un nouveau projet avec Windsurf"
+    - "Quels outils générer selon le stack technique"
+    - "Templates et generators disponibles"
+    - "Checklists de validation"
+
+filters:
+  type:
+    - guidelines
+    - templates
+    - examples
+  
+  min_boost: 1.0
+
+retrieval:
+  top_k: 5
+  strategy: hybrid
+  min_score: 0.6
+
+sources_priority:
+  - "knowledge/guidelines.md"
+  - "tools/templates/*.md"
+  - "examples/basic-usage.md"
+  - "data/stack-mappings.json"
+
+response_format:
+  - "Résumé des étapes de setup"
+  - "Templates recommandés"
+  - "Checklists à suivre"
+  - "Exemple concret"

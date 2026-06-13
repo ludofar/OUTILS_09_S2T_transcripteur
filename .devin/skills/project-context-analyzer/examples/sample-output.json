@@ -1,0 +1,33 @@
+{
+  "project_name": "shopify-dashboard",
+  "description": "Tableau de bord analytics pour merchants Shopify avec reporting en temps réel",
+  "tech_stack": "React 18 / TypeScript / Vite / Node.js / PostgreSQL / Prisma / Stripe",
+  "business_domain": "ecommerce",
+  "team_size": "small",
+  "maturity": "MVP",
+  "constraints": ["RGPD", "performance", "SEO"],
+  "languages": ["fr", "en"],
+  "pain_points": "Pas de tests E2E, build lent en production, CI/CD manquant",
+  "detected_details": {
+    "framework": "React",
+    "runtime": "Node.js",
+    "database": "PostgreSQL",
+    "orm": "Prisma",
+    "styling": "Tailwind CSS",
+    "testing": "Jest",
+    "build_tool": "Vite",
+    "external_services": ["Stripe", "Shopify API"],
+    "typescript": true,
+    "monorepo": false
+  },
+  "windsurf_existing": {
+    "rules_count": 0,
+    "skills_count": 0,
+    "workflows_count": 0,
+    "has_rag": false,
+    "has_mcp": false,
+    "maturity_from_windsurf": "POC"
+  },
+  "confidence_score": 92,
+  "detection_sources": ["README.md", "package.json", "structure src/", "git contributors"]
+}

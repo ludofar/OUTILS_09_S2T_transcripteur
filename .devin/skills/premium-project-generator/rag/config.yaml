@@ -1,0 +1,108 @@
+rag_version: "1.0.0"
+generator: "premium-project-generator"
+
+# Configuration globale du RAG pour ce skill
+retrieval:
+  strategy: "hybrid"          # dense + sparse + metadata
+  top_k: 5                    # Nombre de résultats par défaut
+  min_score: 0.6              # Score minimum de pertinence
+  boost_metadata: true        # Booster selon les métadonnées
+
+# Sources locales (fichiers du skill)
+sources:
+  local:
+    - path: "./knowledge"
+      boost: 2.0
+      description: "Guidelines et conventions du générateur"
+      include_patterns: ["**/*.md"]
+      exclude_patterns: []
+    
+    - path: "./tools/templates"
+      boost: 1.8
+      description: "Templates de génération"
+      include_patterns: ["**/*.md", "**/*.txt"]
+    
+    - path: "./tools/validators"
+      boost: 1.5
+      description: "Schémas de validation"
+      include_patterns: ["**/*.json"]
+    
+    - path: "./data"
+      boost: 1.5
+      description: "Config et mappings"
+      include_patterns: ["**/*.json", "**/*.yaml"]
+    
+    - path: "./examples"
+      boost: 1.2
+      description: "Exemples d'usage"
+      include_patterns: ["**/*.md", "**/*.json"]
+    
+    - path: "./docs"
+      boost: 1.0
+      description: "Documentation du skill"
+      include_patterns: ["**/*.md"]
+
+# Sources distantes (URLs, repos)
+remote:
+  - url: "https://docs.windsurf.com/windsurf/cascade/skills"
+    boost: 1.5
+    description: "Documentation officielle Windsurf Skills"
+    refresh_interval: "7d"
+  
+  - url: "https://agentskills.io/home"
+    boost: 1.3
+    description: "Spécification Agent Skills"
+    refresh_interval: "30d"
+  
+  - url: "https://modelcontextprotocol.io/"
+    boost: 1.2
+    description: "Documentation MCP"
+    refresh_interval: "30d"
+
+# Requêtes prédéfinies
+queries:
+  project-setup:
+    description: "Comment configurer un nouveau projet"
+    keywords: ["setup", "bootstrap", "init", "scaffold"]
+    top_k: 5
+    filters:
+      type: ["guidelines", "templates"]
+    
+  skill-architecture:
+    description: "Architecture complète d'un skill Windsurf"
+    keywords: ["structure", "dossiers", "SKILL.md", "frontmatter"]
+    top_k: 8
+    filters:
+      type: ["guidelines", "schemas"]
+    
+  validation-rules:
+    description: "Standards de validation des outils Windsurf"
+    keywords: ["validate", "schema", "frontmatter", "quality"]
+    top_k: 5
+    filters:
+      type: ["validators", "checklists"]
+    
+  stack-compatibility:
+    description: "Compatibilité stack technique avec outils Windsurf"
+    keywords: ["stack", "framework", "mapping", "compatibility"]
+    top_k: 5
+    filters:
+      type: ["mappings", "knowledge"]
+
+# Boosting des fichiers prioritaires
+boosting:
+  - pattern: "**/SKILL.md"
+    boost: 2.5
+    reason: "Fichiers principaux des skills"
+  
+  - pattern: "**/guidelines.md"
+    boost: 2.0
+    reason: "Directrices architecturales"
+  
+  - pattern: "**/checklists/*.md"
+    boost: 1.5
+    reason: "Procédures de qualité"
+  
+  - pattern: "**/templates/*.md"
+    boost: 1.8
+    reason: "Templates de génération"

@@ -1,0 +1,85 @@
+{
+  "frameworks": {
+    "react": ["react", "react-dom", "next", "next.js", "gatsby", "remix"],
+    "vue": ["vue", "vue-router", "vuex", "pinia", "nuxt", "nuxt.js"],
+    "angular": ["angular", "@angular/core", "@angular/cli"],
+    "svelte": ["svelte", "sveltekit", "svelte-kit"],
+    "solid": ["solid-js", "solidjs"],
+    "astro": ["astro"],
+    "fastapi": ["fastapi", "fast-api"],
+    "django": ["django", "django-rest-framework"],
+    "flask": ["flask"],
+    "rails": ["rails", "ruby-on-rails"],
+    "spring": ["spring-boot", "spring"],
+    "laravel": ["laravel"],
+    "express": ["express", "express.js"],
+    "nest": ["@nestjs/core", "nestjs"],
+    "tauri": ["tauri", "@tauri-apps"],
+    "electron": ["electron"],
+    "flutter": ["flutter"]
+  },
+  "runtimes": {
+    "node": ["node", "nodejs", ".js", ".ts", ".jsx", ".tsx"],
+    "python": ["python", ".py", "pyproject.toml", "requirements.txt"],
+    "rust": ["rust", ".rs", "cargo.toml"],
+    "go": ["go", ".go", "go.mod"],
+    "php": ["php", ".php", "composer.json"],
+    "java": ["java", ".java", "pom.xml", "build.gradle"],
+    "ruby": ["ruby", ".rb", "Gemfile"],
+    "dotnet": [".cs", ".csproj", ".sln"]
+  },
+  "databases": {
+    "postgresql": ["postgres", "postgresql", "pg", "prisma", "typeorm"],
+    "mysql": ["mysql", "mariadb"],
+    "mongodb": ["mongo", "mongodb", "mongoose"],
+    "sqlite": ["sqlite", "sqlite3"],
+    "redis": ["redis", "ioredis"],
+    "dynamodb": ["dynamodb", "dynamo"],
+    "firebase": ["firebase", "firestore"],
+    "supabase": ["supabase"]
+  },
+  "styling": {
+    "tailwind": ["tailwind", "tailwindcss"],
+    "styled-components": ["styled-components"],
+    "sass": ["sass", "scss"],
+    "less": ["less"],
+    "css-modules": ["css-modules"],
+    "mui": ["@mui/material", "material-ui"],
+    "chakra": ["@chakra-ui/react", "chakra-ui"],
+    "shadcn": ["shadcn", "shadcn-ui"],
+    "bootstrap": ["bootstrap"]
+  },
+  "testing": {
+    "jest": ["jest"],
+    "vitest": ["vitest"],
+    "cypress": ["cypress"],
+    "playwright": ["playwright"],
+    "mocha": ["mocha"],
+    "pytest": ["pytest"],
+    "rtl": ["@testing-library/react", "@testing-library"]
+  },
+  "build_tools": {
+    "vite": ["vite"],
+    "webpack": ["webpack"],
+    "turborepo": ["turborepo", "turbo"],
+    "nx": ["nx"],
+    "rollup": ["rollup"],
+    "esbuild": ["esbuild"],
+    "parcel": ["parcel"],
+    "gulp": ["gulp"]
+  },
+  "external_services": {
+    "stripe": ["stripe"],
+    "auth0": ["auth0", "@auth0"],
+    "clerk": ["@clerk"],
+    "nextauth": ["next-auth", "nextauth"],
+    "firebase": ["firebase"],
+    "aws": ["aws-sdk", "@aws-sdk", "amazon"],
+    "vercel": ["vercel"],
+    "netlify": ["netlify"],
+    "twilio": ["twilio"],
+    "sendgrid": ["@sendgrid", "sendgrid"],
+    "openai": ["openai", "@openai"],
+    "langchain": ["langchain"]
+  }
+}

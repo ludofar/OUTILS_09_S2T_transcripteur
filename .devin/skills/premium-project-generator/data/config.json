@@ -1,0 +1,37 @@
+{
+  "generator_name": "premium-project-generator",
+  "version": "1.0.0",
+  "defaults": {
+    "scope": "workspace",
+    "auto_invoke": false,
+    "confidence_threshold": 0.8,
+    "min_rules": 4,
+    "min_skills": 3,
+    "min_workflows": 3,
+    "language": "fr",
+    "code_language": "en"
+  },
+  "folder_defaults": {
+    "tools": { "required": true, "default_subdirs": ["scripts", "templates", "generators", "validators"] },
+    "prompts": { "required": true, "default_subdirs": [] },
+    "examples": { "required": true, "default_subdirs": ["input-examples", "output-examples"] },
+    "knowledge": { "required": true, "default_subdirs": [] },
+    "data": { "required": true, "default_subdirs": ["schemas"] },
+    "checklists": { "required": true, "default_subdirs": [] },
+    "memories": { "required": false, "default_subdirs": [] },
+    "rules": { "required": false, "default_subdirs": [] },
+    "external": { "required": false, "default_subdirs": ["repositories", "packages", "libraries"] },
+    "rag": { "required": false, "default_subdirs": ["sources", "queries"] },
+    "integrations": { "required": false, "default_subdirs": ["mcp", "apis"] },
+    "references": { "required": false, "default_subdirs": ["documentation", "articles", "standards"] },
+    "workflows": { "required": false, "default_subdirs": [] },
+    "tests": { "required": false, "default_subdirs": ["scenarios"] },
+    "docs": { "required": true, "default_subdirs": [] }
+  },
+  "templates_dir": "tools/templates/",
+  "validators_dir": "tools/validators/",
+  "output_encoding": "utf-8",
+  "max_rule_size": 12000,
+  "max_skill_lines": 500,
+  "quality_threshold": 85
+}

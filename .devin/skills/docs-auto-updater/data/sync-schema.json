@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Docs Auto-Updater - Sync Report Schema",
+  "type": "object",
+  "required": ["synced_at", "workspace", "updated_files", "coverage_score"],
+  "properties": {
+    "synced_at": { "type": "string", "format": "date-time" },
+    "workspace": { "type": "string" },
+    "updated_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "change_type": { "type": "string", "enum": ["created", "updated", "unchanged", "missing"] },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "coverage_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "recommendations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
