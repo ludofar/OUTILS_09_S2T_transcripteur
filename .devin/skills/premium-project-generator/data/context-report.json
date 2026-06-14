@@ -1,0 +1,42 @@
+{
+  "project_name": "transcripteur",
+  "description": "CLI de transcription vidéo/audio en francais base sur Whisper, avec inference locale, export SRT/JSON, et mode dictee temps reel planifie.",
+  "tech_stack": "Python 3.11, Poetry, Typer, Rich, faster-whisper, onnxruntime, torchaudio, ffmpeg-python, numpy, sounddevice, pytest, pytest-cov, ruff",
+  "business_domain": "other",
+  "team_size": "solo",
+  "maturity": "MVP",
+  "constraints": [],
+  "languages": ["fr"],
+  "pain_points": "Mode microphone temps reel (mic) et benchmark non implementes. Pas de CI/CD ni Docker. Pas de fichier CONTRIBUTING. Un seul commit git — projet tres recent.",
+  "detected_details": {
+    "framework": "Typer",
+    "runtime": "Python 3.11",
+    "database": "none",
+    "orm": "none",
+    "styling": "none",
+    "testing": "pytest + pytest-cov + ruff",
+    "build_tool": "Poetry",
+    "external_services": ["Whisper (OpenAI models)", "FFmpeg"],
+    "typescript": false,
+    "monorepo": false
+  },
+  "windsurf_existing": {
+    "rules_count": 0,
+    "skills_count": 5,
+    "workflows_count": 7,
+    "has_rag": false,
+    "has_mcp": false,
+    "maturity_from_windsurf": "production"
+  },
+  "confidence_score": 85,
+  "detection_sources": [
+    "pyproject.toml",
+    "README.md",
+    "requirements.txt",
+    "src/transcripteur/",
+    "tests/",
+    ".devin/skills/",
+    ".devin/workflows/",
+    "git log"
+  ]
+}

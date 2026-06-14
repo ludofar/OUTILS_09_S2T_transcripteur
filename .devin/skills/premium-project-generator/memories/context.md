@@ -2,32 +2,38 @@
 
 ## Dernier projet généré
 
-- **Nom** : [à remplir lors de l'exécution]
-- **Stack** : [à remplir]
-- **Domaine** : [à remplir]
-- **Date de génération** : [à remplir]
-- **Score de validation** : [à remplir]
+- **Nom** : transcripteur
+- **Stack** : Python 3.11, Poetry, Typer, Rich, faster-whisper, onnxruntime, torchaudio, ffmpeg-python, numpy, sounddevice, pytest, pytest-cov, ruff
+- **Domaine** : other (media / transcription audio-video)
+- **Date de génération** : 2026-06-13
+- **Score de validation** : 85 / 100
 
 ## Historique des générations
 
 | Date | Projet | Stack | Score |
 |------|--------|-------|-------|
-| [date] | [nom] | [stack] | [score] |
+| 2026-06-13 | transcripteur | Python 3.11, Poetry, Typer, Rich, faster-whisper, onnxruntime, torchaudio, ffmpeg-python, numpy, sounddevice, pytest, pytest-cov, ruff | 85 |
 
 ## Patterns identifiés
 
 ### Stacks fréquemment utilisés
-1. [stack 1] - [nombre de projets]
-2. [stack 2] - [nombre de projets]
+1. Python CLI (Typer + Rich) — projet de transcription audio
+2. faster-whisper + onnxruntime — inference locale Whisper
 
 ### Erreurs récurrentes
-- [erreur 1] → [solution]
-- [erreur 2] → [solution]
+- Modes planifiés (mic, benchmark) non encore implementes → prioriser dans la roadmap
+- Pas de CI/CD ni Docker → ajouter `.github/workflows` et `Dockerfile` si besoin de distribuer
 
 ## Apprentissages
 
 ### Ce qui fonctionne bien
-- [pattern positif]
+- Structure Poetry propre avec `src/` layout
+- CLI modulaire avec sous-commandes (transcribe, doctor, mic, benchmark)
+- Tests pytest deja en place (test_cli, test_config)
+- Outillage Windsurf deja tres fourni (5 skills + 7 workflows)
 
 ### Ce qui peut être amélioré
-- [axe d'amélioration]
+- Ajouter un fichier CONTRIBUTING.md
+- Mettre en place un pipeline CI minimal (lint + tests)
+- Completer l'implementation du mode microphone et du benchmark
+- Ajouter des regles `.devin/rules/` pour renforcer la qualite du code
