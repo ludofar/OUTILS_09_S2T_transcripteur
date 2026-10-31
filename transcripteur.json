@@ -1,0 +1,30 @@
+{
+  "whisper": {
+    "model_name": "small",
+    "device": "cpu",
+    "language": "fr",
+    "beam_size": 5,
+    "temperature": 0.0,
+    "best_of": 5,
+    "patience": 1.0,
+    "condition_on_previous_text": true,
+    "compression_ratio_threshold": 2.4,
+    "logprob_threshold": -1.0,
+    "no_speech_threshold": 0.6,
+    "vad_filter": true,
+    "vad_threshold": 0.5,
+    "vad_min_silence_duration_ms": 500,
+    "vad_speech_pad_ms": 200,
+    "denoise": true,
+    "normalize": true,
+    "highpass_freq": 80
+  },
+  "export": {
+    "export_text": true,
+    "export_json": true,
+    "export_srt": true,
+    "output_dir": "outputs"
+  },
+  "presets": {},
+  "default_preset": null
+}
