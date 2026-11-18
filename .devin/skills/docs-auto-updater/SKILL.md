@@ -167,3 +167,30 @@ Produire `data/sync-report.json` avec :
 - Ce skill ne supprime jamais de documentation sans confirmation
 - Il préserve les sections manuelles ajoutées par l'utilisateur
 - Le score de couverture doc vise 100% : chaque outil doit être documenté
+
+## Mémoire structurée (auto-apprentissage)
+
+Ce skill tient une mémoire d'apprentissage dans `memory/` :
+
+- `decisions.jsonl` — une ligne JSON par événement (`hesitation`,
+  `mcp_check`, `rewrite`, `bilingual_flag`, `glossary_hit`,
+  `human_correction`, `other`, ou type libre court). Champs utiles :
+  `date` ou `ts`, `event` ou `query`, `decision`, `lecon`, `detail`,
+  `fichiers`. Journaliser via `memoire.py log` ou en écrivant la ligne
+  directement — append-only, on ne corrige jamais une ligne, on en
+  ajoute une nouvelle si la décision change.
+- `lecons.md` — patterns distillés par `memoire.py distill` ; relu en
+  début de session, jamais édité à la main.
+
+**Journalisation obligatoire — pas discrétionnaire** :
+
+- En fin de session, **toujours** au moins une ligne de synthèse
+  (`type: other` ou type libre : ce qui a été produit, incidents,
+  sous-skills invoqués). Une session sans aucune ligne est un trou de
+  mémoire — même quand tout s'est bien passé.
+- Skills de relecture/correction : une ligne par famille de correction
+  rencontrée (`rewrite`, `human_correction`), le pattern réutilisable
+  dans `lecon` quand il y en a un.
+- Orchestrateurs : une ligne de synthèse par pipeline exécuté.
+
+Détail : skill global `memoire-skill`.
